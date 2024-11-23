@@ -139,7 +139,10 @@ void Level::Update(const GameTime& gameTime)
 	
 	for (Explosion *pExplosion : s_explosions) pExplosion->Update(gameTime);
 
-	if (!m_pPlayerShip->IsActive()) GetGameplayScreen()->Exit();
+	if (!m_pPlayerShip->IsActive()) {
+		std::cout << "You died."; // print "You died" to console when player ship is destroyed
+		GetGameplayScreen()->Exit(); 
+	}
 }
 
 
